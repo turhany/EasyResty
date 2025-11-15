@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <Authors>Türhan Yıldırım</Authors>
+	  <Description>Rest request helper library.</Description>
+	  <PackageProjectUrl>https://github.com/turhany/EasyResty</PackageProjectUrl>
+	  <PackageIcon>easyresty.png</PackageIcon>
+	  <RepositoryUrl>https://github.com/turhany/EasyResty</RepositoryUrl>
+	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
+	  <PackageTags>Rest helper, rest logger, rest request converter</PackageTags>
+	  <PackageVersion>1.0.0</PackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <None Include="..\..\img\easyresty.png">
+		  <Pack>True</Pack>
+		  <PackagePath></PackagePath>
+	  </None>
+	  <None Include="..\..\LICENSE">
+		  <Pack>True</Pack>
+		  <PackagePath></PackagePath>
+	  </None>
+  </ItemGroup>
+
+  <ItemGroup>
+	  <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+	  <PackageReference Include="Polly" Version="8.6.4" />
+	  <PackageReference Include="RestSharp" Version="112.1.0" />
+	  <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="112.1.0" />
+  </ItemGroup>
+
+</Project>
