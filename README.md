@@ -1,6 +1,6 @@
 ![alt tag](/img/easyresty.png)  
 
-Simplfy your rest calls with EasyResty. (Base on RestSharp)
+Simplfy your rest calls with EasyResty. (Base on  [RestSharp](https://github.com/restsharp/RestSharp) )
 
 [![NuGet version](https://badge.fury.io/nu/EasyResty.svg)](https://badge.fury.io/nu/EasyResty)  ![Nuget](https://img.shields.io/nuget/dt/EasyResty)
 
