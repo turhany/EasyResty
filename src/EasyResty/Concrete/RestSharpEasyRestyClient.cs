@@ -56,7 +56,25 @@ namespace Resty.Concrete
                 {
                     foreach (var header in request.Headers)
                     {
+                        if (string.IsNullOrEmpty(header.Key) || string.IsNullOrWhiteSpace(header.Key) || header.Value == null)
+                        {
+                            throw new ArgumentNullException($"Header Key or Value cannot be null! (Key: {header.Key}, Value: {header.Value})");
+                        }
+
                         restRequest.AddHeader(header.Key, header.Value);
+                    }
+                }
+
+                if (request.QueryParams != null && request.QueryParams.Any())
+                {
+                    foreach (var queryParam in request.QueryParams)
+                    {
+                        if (string.IsNullOrEmpty(queryParam.Key) || string.IsNullOrWhiteSpace(queryParam.Key) || queryParam.Value == null)
+                        {
+                            throw new ArgumentNullException($"QueryParam Key or Value cannot be null! (Key: {queryParam.Key}, Value: {queryParam.Value})");
+                        }
+
+                        restRequest.AddQueryParameter(queryParam.Key, queryParam.Value);
                     }
                 }
 
@@ -160,6 +178,8 @@ namespace Resty.Concrete
             {
                 restClientResponse.IsSuccess = false;
                 restClientResponse.Errors.Add(ex.ToJson());
+
+                _logger.LogError(ex, "Error in RestClientHelper RequestAsync");
             }
             if (request.EnableReqRespLogging)
             {
@@ -209,7 +229,25 @@ namespace Resty.Concrete
                 {
                     foreach (var header in request.Headers)
                     {
+                        if (string.IsNullOrEmpty(header.Key) || string.IsNullOrWhiteSpace(header.Key) || header.Value == null)
+                        {
+                            throw new ArgumentNullException($"Header Key or Value cannot be null! (Key: {header.Key}, Value: {header.Value})");
+                        }
+
                         restRequest.AddHeader(header.Key, header.Value);
+                    }
+                }
+
+                if (request.QueryParams != null && request.QueryParams.Any())
+                {
+                    foreach (var queryParam in request.QueryParams)
+                    {
+                        if (string.IsNullOrEmpty(queryParam.Key) || string.IsNullOrWhiteSpace(queryParam.Key) || queryParam.Value == null)
+                        {
+                            throw new ArgumentNullException($"QueryParam Key or Value cannot be null! (Key: {queryParam.Key}, Value: {queryParam.Value})");
+                        }
+
+                        restRequest.AddQueryParameter(queryParam.Key, queryParam.Value);
                     }
                 }
 
@@ -217,15 +255,7 @@ namespace Resty.Concrete
                 {
                     restRequest.AddBody(request.RequestBody);
                 }
-
-                if (request.QueryParams != null && request.QueryParams.Any())
-                {
-                    foreach (var queryParam in request.QueryParams)
-                    {
-                        restRequest.AddQueryParameter(queryParam.Key, queryParam.Value);
-                    }
-                }
-
+                
                 Stopwatch restRequestTimeStopwatch = new Stopwatch();
                 restRequestTimeStopwatch.Start();
                 RestResponse restResponse;
@@ -375,21 +405,31 @@ namespace Resty.Concrete
                 {
                     foreach (var header in request.Headers)
                     {
+                        if (string.IsNullOrEmpty(header.Key) || string.IsNullOrWhiteSpace(header.Key) || header.Value == null)
+                        {
+                            throw new ArgumentNullException($"Header Key or Value cannot be null! (Key: {header.Key}, Value: {header.Value})");
+                        }
+
                         restRequest.AddHeader(header.Key, header.Value);
                     }
-                }
-
-                if (!string.IsNullOrWhiteSpace(request.RequestBody))
-                {
-                    restRequest.AddBody(request.RequestBody);
                 }
 
                 if (request.QueryParams != null && request.QueryParams.Any())
                 {
                     foreach (var queryParam in request.QueryParams)
                     {
+                        if (string.IsNullOrEmpty(queryParam.Key) || string.IsNullOrWhiteSpace(queryParam.Key) || queryParam.Value == null)
+                        {
+                            throw new ArgumentNullException($"QueryParam Key or Value cannot be null! (Key: {queryParam.Key}, Value: {queryParam.Value})");
+                        }
+
                         restRequest.AddQueryParameter(queryParam.Key, queryParam.Value);
                     }
+                }
+
+                if (!string.IsNullOrWhiteSpace(request.RequestBody))
+                {
+                    restRequest.AddBody(request.RequestBody);
                 }
 
                 Stopwatch restRequestTimeStopwatch = new Stopwatch();

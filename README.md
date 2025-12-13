@@ -236,5 +236,11 @@ var response = await _easyRestyClient.RequestAsync(new EasyRestyClientRequest
 
 ### Release Notes
 
+##### 1.0.1
+* Null check added for header and query params
+* Polly version updated to 8.6.5
+* RestSharp version updated to 113.0.0
+* RestSharp.Serializers.NewtonsoftJson version updated to 113.0.0
+
 ##### 1.0.0
 * Base release
