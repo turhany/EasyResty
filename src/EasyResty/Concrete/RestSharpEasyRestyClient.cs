@@ -102,6 +102,7 @@ namespace Resty.Concrete
 
                 restClientResponse.IsSuccess = restResponse.IsSuccessful;
                 restClientResponse.Content = restResponse.Content;
+                restClientResponse.StatusCode = restResponse.StatusCode;
                 if (!restResponse.IsSuccessful)
                 {
                     var errors = new List<string>();
@@ -274,6 +275,7 @@ namespace Resty.Concrete
                 restClientResponse.RestRequestResponseLog.RequestLog.ResponseDataFieldDataType = request.ResponseDataFieldDataType;
 
                 restClientResponse.IsSuccess = restResponse.IsSuccessful;
+                restClientResponse.StatusCode = restResponse.StatusCode;
                 if (restClientResponse.IsSuccess)
                 {
                     restClientResponse.Data = _restClient.Serializers.DeserializeContent<T>(restResponse);
@@ -451,6 +453,7 @@ namespace Resty.Concrete
                 restClientResponse.RestRequestResponseLog.RequestLog.ResponseDataFieldDataType = request.ResponseDataFieldDataType;
 
                 restClientResponse.IsSuccess = restResponse.IsSuccessful;
+                restClientResponse.StatusCode = restResponse.StatusCode;
                 if (restClientResponse.IsSuccess)
                 {
                     restClientResponse.SuccessData = _restClient.Serializers.DeserializeContent<TSuccessModel>(restResponse);
