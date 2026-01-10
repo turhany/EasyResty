@@ -236,6 +236,9 @@ var response = await _easyRestyClient.RequestAsync(new EasyRestyClientRequest
 
 ### Release Notes
 
+##### 1.0.2
+* Rest request original Http response Status added in EasyRestyClientResponse model as "StatusCode" (Default value is  HttpStatusCode.OK)
+
 ##### 1.0.1
 * Null check added for header and query params
 * Polly version updated to 8.6.5
