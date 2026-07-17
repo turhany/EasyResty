@@ -239,6 +239,11 @@ var response = await _easyRestyClient.RequestAsync(new EasyRestyClientRequest
 
 ### Release Notes
 
+##### 1.0.3 
+* Polly version updated to 8.7.0
+* RestSharp version updated to 114.0.0
+* RestSharp.Serializers.NewtonsoftJson version updated to 114.0.0
+
 ##### 1.0.2
 * Rest request original Http response Status added in EasyRestyClientResponse model as "StatusCode" (Default value is  HttpStatusCode.OK)
 
