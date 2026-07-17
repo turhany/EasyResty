@@ -239,6 +239,9 @@ var response = await _easyRestyClient.RequestAsync(new EasyRestyClientRequest
 
 ### Release Notes
 
+##### 1.0.4 
+* .Net 10 Release
+
 ##### 1.0.3 
 * Polly version updated to 8.7.0
 * RestSharp version updated to 114.0.0
